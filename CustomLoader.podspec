@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "CustomLoader"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Custom loader system for iOS"
   s.description  = <<-DESC
                     Custom loader system for iOS that provide default loaders
