@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "MUISEROUX Fritzgerald" => "f.muiseroux@gmail.com" }
   s.platform     = :ios, '8.0'
-  s.source       = { :git => "https://github.com/fritzgerald/CustomLoader.git", :tag => "0.0.2" }
+  s.source       = { :git => "https://github.com/fritzgerald/CustomLoader.git", :tag => "0.0.3" }
   s.source_files  = "Source/", "Source/**/*.{h,m}"
 
 end
