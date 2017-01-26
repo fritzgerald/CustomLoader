@@ -117,10 +117,7 @@ extension CAShapeLayer {
                      maxAngle: Double = M_PI * 2,
                      clockwise: Bool = true) {
         self.init()
-        var diameter = drawingFrame.width
-        if drawingFrame.width > drawingFrame.height {
-            diameter = drawingFrame.height
-        }
+        var diameter = fmin(drawingFrame.width, drawingFrame.height)
         let center = CGPoint(x: drawingFrame.width / 2.0, y: drawingFrame.height / 2.0)
         let circlePath = UIBezierPath(arcCenter: center,
                                       radius: (diameter * scale) / 2.0,

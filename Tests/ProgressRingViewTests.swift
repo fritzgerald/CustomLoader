@@ -55,6 +55,29 @@ class ProgressRingViewTests: XCTestCase {
         }
     }
     
+    func testLightStyle() {
+        
+        let darkRing = ProgressRingView.light
+        XCTAssertEqual(darkRing.outterColor, UIColor.white)
+        XCTAssertEqual(darkRing.innerColor, UIColor.darkGray)
+        XCTAssertEqual(darkRing.lineWidth, 3)
+    }
+    
+    func testDarkStyle() {
+        
+        let lightRing = ProgressRingView.dark
+        XCTAssertEqual(lightRing.outterColor, UIColor.black)
+        XCTAssertEqual(lightRing.innerColor, UIColor.darkGray)
+        XCTAssertEqual(lightRing.lineWidth, 3)
+    }
+    
+    func testXibInitialization() {
+        let bundle = Bundle(for: ProgressRingViewTests.self)
+        let nib = UINib(nibName: "ProgressRingViewXibTest", bundle: bundle)
+        let loadingRing = nib.instantiate(withOwner: nil, options: nil).first as? ProgressRingView
+        XCTAssertNotNil(loadingRing)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

@@ -14,6 +14,7 @@
 		4CFF3E3F1E39E4E300F8CDBC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF3E3D1E39E4E300F8CDBC /* Info.plist */; };
 		4CFF3E4B1E39E78900F8CDBC /* CustomLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CFF3E301E39E44600F8CDBC /* CustomLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CFF3E7D1E3A61BD00F8CDBC /* ProgressRingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF3E7C1E3A61BD00F8CDBC /* ProgressRingViewTests.swift */; };
+		4CFF3E801E3A71DB00F8CDBC /* ProgressRingViewXibTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF3E7E1E3A714900F8CDBC /* ProgressRingViewXibTest.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		4CFF3E341E39E44600F8CDBC /* ProgressRingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressRingView.swift; sourceTree = "<group>"; };
 		4CFF3E3D1E39E4E300F8CDBC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CFF3E7C1E3A61BD00F8CDBC /* ProgressRingViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressRingViewTests.swift; sourceTree = "<group>"; };
+		4CFF3E7E1E3A714900F8CDBC /* ProgressRingViewXibTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressRingViewXibTest.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				4CFF3E3D1E39E4E300F8CDBC /* Info.plist */,
 				4CFF3E7C1E3A61BD00F8CDBC /* ProgressRingViewTests.swift */,
+				4CFF3E7E1E3A714900F8CDBC /* ProgressRingViewXibTest.xib */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFF3E3F1E39E4E300F8CDBC /* Info.plist in Resources */,
+				4CFF3E801E3A71DB00F8CDBC /* ProgressRingViewXibTest.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
