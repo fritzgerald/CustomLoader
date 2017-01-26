@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:CustomLoader.xcodeproj">
+      location = "self:/Users/fitji/Documents/DEV/IOS/CustomLoader/CustomLoaderSample.xcodeproj">
    </FileRef>
 </Workspace>

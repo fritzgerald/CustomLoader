@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4CFF3DDC1E36951A00F8CDBC"
-               BuildableName = "CustomLoader.app"
-               BlueprintName = "CustomLoader"
-               ReferencedContainer = "container:CustomLoader.xcodeproj">
+               BuildableName = "CustomLoaderSample.app"
+               BlueprintName = "CustomLoaderSample"
+               ReferencedContainer = "container:CustomLoaderSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4CFF3DF01E36951A00F8CDBC"
-               BuildableName = "CustomLoaderTests.xctest"
-               BlueprintName = "CustomLoaderTests"
-               ReferencedContainer = "container:CustomLoader.xcodeproj">
+               BuildableName = "CustomLoaderSampleTests.xctest"
+               BlueprintName = "CustomLoaderSampleTests"
+               ReferencedContainer = "container:CustomLoaderSample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4CFF3DDC1E36951A00F8CDBC"
-            BuildableName = "CustomLoader.app"
-            BlueprintName = "CustomLoader"
-            ReferencedContainer = "container:CustomLoader.xcodeproj">
+            BuildableName = "CustomLoaderSample.app"
+            BlueprintName = "CustomLoaderSample"
+            ReferencedContainer = "container:CustomLoaderSample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4CFF3DDC1E36951A00F8CDBC"
-            BuildableName = "CustomLoader.app"
-            BlueprintName = "CustomLoader"
-            ReferencedContainer = "container:CustomLoader.xcodeproj">
+            BuildableName = "CustomLoaderSample.app"
+            BlueprintName = "CustomLoaderSample"
+            ReferencedContainer = "container:CustomLoaderSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4CFF3DDC1E36951A00F8CDBC"
-            BuildableName = "CustomLoader.app"
-            BlueprintName = "CustomLoader"
-            ReferencedContainer = "container:CustomLoader.xcodeproj">
+            BuildableName = "CustomLoaderSample.app"
+            BlueprintName = "CustomLoaderSample"
+            ReferencedContainer = "container:CustomLoaderSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

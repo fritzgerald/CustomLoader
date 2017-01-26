@@ -29,14 +29,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4CFF3DDD1E36951A00F8CDBC /* CustomLoader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomLoader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CFF3DDD1E36951A00F8CDBC /* CustomLoaderSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomLoaderSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFF3DE01E36951A00F8CDBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFF3DE21E36951A00F8CDBC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4CFF3DE51E36951A00F8CDBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CFF3DE71E36951A00F8CDBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CFF3DEA1E36951A00F8CDBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CFF3DEC1E36951A00F8CDBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CFF3DF11E36951A00F8CDBC /* CustomLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CFF3DF11E36951A00F8CDBC /* CustomLoaderSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomLoaderSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFF3DF51E36951A00F8CDBC /* CustomLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoaderTests.swift; sourceTree = "<group>"; };
 		4CFF3DF71E36951A00F8CDBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CFF3E011E3695A700F8CDBC /* ProgressRingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressRingView.swift; sourceTree = "<group>"; };
@@ -75,8 +75,8 @@
 		4CFF3DDE1E36951A00F8CDBC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4CFF3DDD1E36951A00F8CDBC /* CustomLoader.app */,
-				4CFF3DF11E36951A00F8CDBC /* CustomLoaderTests.xctest */,
+				4CFF3DDD1E36951A00F8CDBC /* CustomLoaderSample.app */,
+				4CFF3DF11E36951A00F8CDBC /* CustomLoaderSampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,9 +117,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4CFF3DDC1E36951A00F8CDBC /* CustomLoader */ = {
+		4CFF3DDC1E36951A00F8CDBC /* CustomLoaderSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CFF3DFA1E36951A00F8CDBC /* Build configuration list for PBXNativeTarget "CustomLoader" */;
+			buildConfigurationList = 4CFF3DFA1E36951A00F8CDBC /* Build configuration list for PBXNativeTarget "CustomLoaderSample" */;
 			buildPhases = (
 				4CFF3DD91E36951A00F8CDBC /* Sources */,
 				4CFF3DDA1E36951A00F8CDBC /* Frameworks */,
@@ -129,14 +129,14 @@
 			);
 			dependencies = (
 			);
-			name = CustomLoader;
+			name = CustomLoaderSample;
 			productName = CustomLoader;
-			productReference = 4CFF3DDD1E36951A00F8CDBC /* CustomLoader.app */;
+			productReference = 4CFF3DDD1E36951A00F8CDBC /* CustomLoaderSample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4CFF3DF01E36951A00F8CDBC /* CustomLoaderTests */ = {
+		4CFF3DF01E36951A00F8CDBC /* CustomLoaderSampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CFF3DFD1E36951A00F8CDBC /* Build configuration list for PBXNativeTarget "CustomLoaderTests" */;
+			buildConfigurationList = 4CFF3DFD1E36951A00F8CDBC /* Build configuration list for PBXNativeTarget "CustomLoaderSampleTests" */;
 			buildPhases = (
 				4CFF3DED1E36951A00F8CDBC /* Sources */,
 				4CFF3DEE1E36951A00F8CDBC /* Frameworks */,
@@ -147,9 +147,9 @@
 			dependencies = (
 				4CFF3DF31E36951A00F8CDBC /* PBXTargetDependency */,
 			);
-			name = CustomLoaderTests;
+			name = CustomLoaderSampleTests;
 			productName = CustomLoaderTests;
-			productReference = 4CFF3DF11E36951A00F8CDBC /* CustomLoaderTests.xctest */;
+			productReference = 4CFF3DF11E36951A00F8CDBC /* CustomLoaderSampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -175,7 +175,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4CFF3DD81E36951A00F8CDBC /* Build configuration list for PBXProject "CustomLoader" */;
+			buildConfigurationList = 4CFF3DD81E36951A00F8CDBC /* Build configuration list for PBXProject "CustomLoaderSample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -188,8 +188,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4CFF3DDC1E36951A00F8CDBC /* CustomLoader */,
-				4CFF3DF01E36951A00F8CDBC /* CustomLoaderTests */,
+				4CFF3DDC1E36951A00F8CDBC /* CustomLoaderSample */,
+				4CFF3DF01E36951A00F8CDBC /* CustomLoaderSampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -240,7 +240,7 @@
 /* Begin PBXTargetDependency section */
 		4CFF3DF31E36951A00F8CDBC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4CFF3DDC1E36951A00F8CDBC /* CustomLoader */;
+			target = 4CFF3DDC1E36951A00F8CDBC /* CustomLoaderSample */;
 			targetProxy = 4CFF3DF21E36951A00F8CDBC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -393,7 +393,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitjilab.CustomLoaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomLoader.app/CustomLoader";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomLoaderSample.app/CustomLoaderSample";
 			};
 			name = Debug;
 		};
@@ -408,14 +408,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitjilab.CustomLoaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomLoader.app/CustomLoader";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomLoaderSample.app/CustomLoaderSample";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4CFF3DD81E36951A00F8CDBC /* Build configuration list for PBXProject "CustomLoader" */ = {
+		4CFF3DD81E36951A00F8CDBC /* Build configuration list for PBXProject "CustomLoaderSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CFF3DF81E36951A00F8CDBC /* Debug */,
@@ -424,21 +424,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CFF3DFA1E36951A00F8CDBC /* Build configuration list for PBXNativeTarget "CustomLoader" */ = {
+		4CFF3DFA1E36951A00F8CDBC /* Build configuration list for PBXNativeTarget "CustomLoaderSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CFF3DFB1E36951A00F8CDBC /* Debug */,
 				4CFF3DFC1E36951A00F8CDBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		4CFF3DFD1E36951A00F8CDBC /* Build configuration list for PBXNativeTarget "CustomLoaderTests" */ = {
+		4CFF3DFD1E36951A00F8CDBC /* Build configuration list for PBXNativeTarget "CustomLoaderSampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CFF3DFE1E36951A00F8CDBC /* Debug */,
 				4CFF3DFF1E36951A00F8CDBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
