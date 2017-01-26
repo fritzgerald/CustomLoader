@@ -8,24 +8,24 @@
 
 import UIKit
 
-class ProgressBoxView: UIView {
+public class ProgressBoxView: UIView {
 
     var loaderView: UIView!
     var contentView: UIView!
     let label = UILabel()
     let label2 = UILabel()
 
-    init(loader: UIView) {
+    public init(loader: UIView) {
         super.init(frame: CGRect.zero)
         loaderView = loader
         initializeStyle()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initializeStyle() {
+    private func initializeStyle() {
         
         contentView = UIView()
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,13 +49,13 @@ class ProgressBoxView: UIView {
         layer.cornerRadius = 10
     }
     
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         return CGSize(width: 100, height: 100)
     }
 }
 
-extension ProgressBoxView {
-    static var standard: ProgressBoxView {
+public extension ProgressBoxView {
+    public static var standard: ProgressBoxView {
         let view = ProgressBoxView(loader: ProgressRingView.light)
         view.backgroundColor =  UIColor.lightGray
         return view

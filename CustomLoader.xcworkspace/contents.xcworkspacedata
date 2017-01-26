@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:CustomLoaderSample.xcodeproj">
+      location = "group:CustomLoader.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:Example/CustomLoaderSample.xcodeproj">
    </FileRef>
 </Workspace>

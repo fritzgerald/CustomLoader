@@ -2,12 +2,12 @@
 //  CustomLoaderTests.swift
 //  CustomLoaderTests
 //
-//  Created by fritzgerald muiseroux on 23/01/2017.
+//  Created by fritzgerald muiseroux on 26/01/2017.
 //  Copyright © 2017 fritzgerald muiseroux. All rights reserved.
 //
 
 import XCTest
-@testable import CustomLoader
+@testable import CustomLoaderSample
 
 class CustomLoaderTests: XCTestCase {
     

@@ -9,13 +9,13 @@
 import UIKit
 
 @IBDesignable
-class ProgressRingView: UIView {
+public class ProgressRingView: UIView {
     
     var addedLayer = [CALayer]()
     
     private var _innerColor: UIColor = UIColor.clear
     @IBInspectable
-    var innerColor: UIColor {
+    public var innerColor: UIColor {
         get { return _innerColor }
         set {
             _innerColor = newValue
@@ -25,7 +25,7 @@ class ProgressRingView: UIView {
     
     private var _outterColor: UIColor = UIColor.clear
     @IBInspectable
-    var outterColor: UIColor {
+    public var outterColor: UIColor {
         get { return _outterColor }
         set {
             _outterColor = newValue
@@ -35,7 +35,7 @@ class ProgressRingView: UIView {
     
     private var _lineWidth: CGFloat = 3.0
     @IBInspectable
-    var lineWidth: CGFloat {
+    public var lineWidth: CGFloat {
         get { return _lineWidth }
         set {
             _lineWidth = newValue
@@ -43,17 +43,17 @@ class ProgressRingView: UIView {
         }
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
     }
     
-    func circleLayer(color: UIColor, scale: CGFloat = 1.0) -> CALayer {
+    private func circleLayer(color: UIColor, scale: CGFloat = 1.0) -> CALayer {
         
         let shapeLayer = CAShapeLayer(circleInFrame: bounds, scale:scale, maxAngle: M_PI)
         shapeLayer.fillColor = UIColor.clear.cgColor
@@ -64,7 +64,7 @@ class ProgressRingView: UIView {
         return shapeLayer
     }
     
-    func initialize() {
+    private func initialize() {
         
         let theLayer = circleLayer(color: outterColor)
         layer.addSublayer(theLayer)
@@ -78,7 +78,7 @@ class ProgressRingView: UIView {
         addedLayer.append(theLayer2)
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         
         addedLayer.forEach { subLayer in
@@ -88,21 +88,21 @@ class ProgressRingView: UIView {
         initialize()
     }
     
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         return CGSize(width: 40, height: 40)
     }
 }
 
-extension ProgressRingView {
+public extension ProgressRingView {
     
-    static var light: ProgressRingView {
+    public static var light: ProgressRingView {
         let view = ProgressRingView()
         view.outterColor = .white
         view.innerColor = .darkGray
         return view
     }
     
-    static var dark: ProgressRingView {
+    public static var dark: ProgressRingView {
         let view = ProgressRingView()
         view.outterColor = .black
         view.innerColor = .darkGray

@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
   s.author             = { "MUISEROUX Fritzgerald" => "f.muiseroux@gmail.com" }
   s.platform     = :ios, '8.0'
   s.source       = { :git => "https://github.com/fritzgerald/CustomLoader.git", :tag => "0.0.2" }
-  s.source_files  = "sources/", "sources/**/*.{h,m}"
+  s.source_files  = "Source/", "Source/**/*.{h,m}"
 
 end

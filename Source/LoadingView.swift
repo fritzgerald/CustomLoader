@@ -8,10 +8,10 @@
 
 import UIKit
 
-class LoadingView: UIView {
+public class LoadingView: UIView {
     let loaderView: UIView
     
-    init(loaderView theView: UIView) {
+    public init(loaderView theView: UIView) {
         loaderView = theView
         super.init(frame: CGRect.zero)
         
@@ -23,7 +23,7 @@ class LoadingView: UIView {
         addConstraints([centerXContraint, centerYContraint])
     }
     
-    func removeFromSuperview(animated: Bool, completion: ((Bool) -> Void)? = nil) {
+    public func removeFromSuperview(animated: Bool, completion: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: 0.3, animations: {
             self.alpha = 0
         }, completion: { finished in
@@ -36,12 +36,12 @@ class LoadingView: UIView {
         })
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     
-    class func show(inView view:UIView, withProgressRing ringView: ProgressRingView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) -> LoadingView {
+    public class func show(inView view:UIView, withProgressRing ringView: ProgressRingView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) -> LoadingView {
         
         let loadingView = LoadingView(loaderView: ringView)
         show(inView: view, loadingView: loadingView, animated: animated, completion: completion)
@@ -49,7 +49,7 @@ class LoadingView: UIView {
         return loadingView
     }
     
-    class func show(inView view: UIView, box: ProgressBoxView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) -> LoadingView {
+    public class func show(inView view: UIView, box: ProgressBoxView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) -> LoadingView {
         
         let loadingView = LoadingView(loaderView: box)
         show(inView: view, loadingView: loadingView, animated: animated, completion: completion)
@@ -57,7 +57,7 @@ class LoadingView: UIView {
         return loadingView
     }
     
-    class func show(inView view: UIView, loadingView: UIView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
+    public class func show(inView view: UIView, loadingView: UIView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
         loadingView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin,]
         loadingView.frame = view.bounds
         view.addSubview(loadingView)
