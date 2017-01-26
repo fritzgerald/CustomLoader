@@ -11,9 +11,9 @@
 		4CFF3E371E39E44600F8CDBC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF3E321E39E44600F8CDBC /* LoadingView.swift */; };
 		4CFF3E381E39E44600F8CDBC /* ProgressBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF3E331E39E44600F8CDBC /* ProgressBoxView.swift */; };
 		4CFF3E391E39E44600F8CDBC /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF3E341E39E44600F8CDBC /* ProgressRingView.swift */; };
-		4CFF3E3E1E39E4E300F8CDBC /* CustomLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF3E3C1E39E4E300F8CDBC /* CustomLoaderTests.swift */; };
 		4CFF3E3F1E39E4E300F8CDBC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF3E3D1E39E4E300F8CDBC /* Info.plist */; };
 		4CFF3E4B1E39E78900F8CDBC /* CustomLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CFF3E301E39E44600F8CDBC /* CustomLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4CFF3E7D1E3A61BD00F8CDBC /* ProgressRingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF3E7C1E3A61BD00F8CDBC /* ProgressRingViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +34,8 @@
 		4CFF3E321E39E44600F8CDBC /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		4CFF3E331E39E44600F8CDBC /* ProgressBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBoxView.swift; sourceTree = "<group>"; };
 		4CFF3E341E39E44600F8CDBC /* ProgressRingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressRingView.swift; sourceTree = "<group>"; };
-		4CFF3E3C1E39E4E300F8CDBC /* CustomLoaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLoaderTests.swift; sourceTree = "<group>"; };
 		4CFF3E3D1E39E4E300F8CDBC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CFF3E7C1E3A61BD00F8CDBC /* ProgressRingViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressRingViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +98,8 @@
 		4CFF3E3B1E39E4E300F8CDBC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				4CFF3E3C1E39E4E300F8CDBC /* CustomLoaderTests.swift */,
 				4CFF3E3D1E39E4E300F8CDBC /* Info.plist */,
+				4CFF3E7C1E3A61BD00F8CDBC /* ProgressRingViewTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -170,7 +170,6 @@
 					};
 					4CFF3E1D1E39E30000F8CDBC = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = M9ZSW7KS3F;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -226,7 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CFF3E3E1E39E4E300F8CDBC /* CustomLoaderTests.swift in Sources */,
+				4CFF3E7D1E3A61BD00F8CDBC /* ProgressRingViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +383,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = M9ZSW7KS3F;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitjilab.CustomLoaderTests;
@@ -397,7 +397,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = M9ZSW7KS3F;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitjilab.CustomLoaderTests;
