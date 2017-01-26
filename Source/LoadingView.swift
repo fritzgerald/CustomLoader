@@ -39,8 +39,10 @@ public class LoadingView: UIView {
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
+}
+
+public extension LoadingView {
+    // MARK: LoadingView Presentation
     public class func show(inView view:UIView, withProgressRing ringView: ProgressRingView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) -> LoadingView {
         
         let loadingView = LoadingView(loaderView: ringView)
@@ -70,5 +72,20 @@ public class LoadingView: UIView {
         } else if let completion = completion {
             completion(true)
         }
+    }
+    
+    public class func removeLoadingViews(inView view: UIView, animated: Bool) {
+        view.subviews.forEach { view in
+            if let loadingView = view as? LoadingView {
+                loadingView.removeFromSuperview(animated: animated)
+            }
+        }
+    }
+}
+
+// MARK: UIView extensions
+public extension UIView {
+    public func removeLoadingViews(animated: Bool) {
+        LoadingView.removeLoadingViews(inView: self, animated: animated)
     }
 }

@@ -10,8 +10,6 @@ import UIKit
 import CustomLoader
 
 class ViewController: UIViewController {
-
-    var loader: LoadingView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +22,9 @@ class ViewController: UIViewController {
     
     @IBAction func showLoader(sender: Any) {
         
-        loader = LoadingView.show(inView: view, box: .standard) { _ in
+        _ = LoadingView.show(inView: view, box: .standard) { _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.loader!.removeFromSuperview(animated: true)
+                self.view.removeLoadingViews(animated: true)
             }
         }
     }
