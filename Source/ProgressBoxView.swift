@@ -62,21 +62,6 @@ public extension ProgressBoxView {
     }
 }
 
-class SpaceView : UIView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addConstraint(NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: frame.width))
-        addConstraint(NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: frame.height))
-        backgroundColor = UIColor.clear
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("[SpaceView init:coder:] not implemented")
-    }
-    
-}
-
 extension UILabel {
     
     func standardStyle(withFont font: UIFont) {

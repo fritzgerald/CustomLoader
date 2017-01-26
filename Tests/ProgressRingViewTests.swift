@@ -52,6 +52,15 @@ class ProgressRingViewTests: XCTestCase {
             XCTAssertEqual(outterLayer.lineWidth, 10)
             XCTAssertEqual(innerLayer.lineWidth, 10)
             
+            let outterAnimation = outterLayer.animation(forKey: "rotation") as? CABasicAnimation
+            let innerAnimation = innerLayer.animation(forKey: "rotation") as? CABasicAnimation
+            
+            XCTAssertNotNil(outterAnimation)
+            XCTAssertNotNil(innerAnimation)
+            
+            // Make sure that the animations repeat forever
+            XCTAssertEqual(outterAnimation?.repeatCount, Float.greatestFiniteMagnitude)
+            XCTAssertEqual(innerAnimation?.repeatCount, Float.greatestFiniteMagnitude)
         }
     }
     
