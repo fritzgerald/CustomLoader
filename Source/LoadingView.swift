@@ -42,6 +42,13 @@ public class LoadingView: UIView {
 }
 
 public extension LoadingView {
+    // Instance presentation
+    public func show(inView view: UIView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
+       LoadingView.show(inView: view, loadingView: self, animated: animated, completion: completion)
+    }
+}
+
+public extension LoadingView {
     // MARK: LoadingView Presentation
     public class func show(inView view:UIView, withProgressRing ringView: ProgressRingView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) -> LoadingView {
         
@@ -82,6 +89,22 @@ public extension LoadingView {
         }
     }
 }
+
+// MARK: Style
+public extension LoadingView {
+    public static var lightProgressRing: LoadingView {
+        return LoadingView(loaderView: ProgressRingView.light)
+    }
+    
+    public static var darkProgressRing: LoadingView {
+        return LoadingView(loaderView: ProgressRingView.dark)
+    }
+    
+    public static var standardProgressBox: LoadingView {
+        return LoadingView(loaderView: ProgressBoxView.standard)
+    }
+}
+
 
 // MARK: UIView extensions
 public extension UIView {

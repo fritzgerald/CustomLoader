@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     @IBAction func showLoader(sender: Any) {
         
-        _ = LoadingView.show(inView: view, box: .standard) { _ in
+        _ = LoadingView.standardProgressBox.show(inView: view) { _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self.view.removeLoadingViews(animated: true)
             }
