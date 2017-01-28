@@ -9,9 +9,9 @@ env:
     - DESTINATION="OS=10.2,name=iPhone 7" SDK="$IOS_SDK" POD_LINT="NO"
     - DESTINATION="OS=9.0,name=iPhone 6" SDK="$IOS_SDK" POD_LINT="NO"
     - DESTINATION="OS=8.1,name=iPhone 4" SDK="$IOS_SDK" POD_LINT="YES"
-  script:
-    - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug test | xcpretty
-    # Run `pod lib lint` if specified
-    - if [ $POD_LINT == "YES" ]; then
-        pod lib lint;
-      fi
+script:
+  - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug test | xcpretty
+  # Run `pod lib lint` if specified
+  - if [ $POD_LINT == "YES" ]; then
+      pod lib lint;
+    fi
