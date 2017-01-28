@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/fritzgerald/CustomLoader.svg?branch=master)](https://travis-ci.org/fritzgerald/CustomLoader)
+[![CocoaPod](https://cocoapod-badges.herokuapp.com/v/CustomLoader/badge.png)](https://cocoapods.org/pods/CustomLoader)
+![supported platforms](https://cocoapod-badges.herokuapp.com/p/CustomLoader/badge.png)
+[![Twitter](https://img.shields.io/badge/twitter-@fmuiseroux-blue.svg)](https://twitter.com/fmuiseroux)
+
 ## Requirements
 * iOS 8.0+
 * Xcode 8.0+
