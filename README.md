@@ -35,19 +35,19 @@ $ pod install
 
 ## Usage
 ### Presenting a loading view
-```
+```swift
 import CustomLoader
 
 LoadingView.standardProgressBox.show(inView: view)
 ```
 
 ### Remove the loading view
-```
+```swift
 view.removeLoadingViews(animated: true)
 ```
 
 ### Customizing the progress ring
-```
+```swift
 public extension ProgressRingView {
     
     public static var appProgressRing: ProgressRingView {
@@ -67,7 +67,7 @@ public extension LoadingView {
 
 ```
 ### Loader with your view
-```
+```swift
 static var myLoader: LoadingView {
     let loaderView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     loaderView.startAnimating()
@@ -76,10 +76,10 @@ static var myLoader: LoadingView {
 ```
 
 ### Present the customized loader
-```
+```swift
 LoadingView.appLoadingView.show(inView: view)
 ```
-```
+```swift
 LoadingView.myLoader.show(inView: view)
 ```
 
