@@ -103,6 +103,12 @@ public extension LoadingView {
     public static var standardProgressBox: LoadingView {
         return LoadingView(loaderView: ProgressBoxView.standard)
     }
+    
+    public static func system(withStyle style: UIActivityIndicatorViewStyle) -> LoadingView {
+        let loaderView = UIActivityIndicatorView(activityIndicatorStyle: style)
+        loaderView.startAnimating()
+        return LoadingView(loaderView: loaderView)
+    }
 }
 
 
