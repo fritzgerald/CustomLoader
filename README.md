@@ -32,3 +32,55 @@ Apply your configuration with the following command:
 ```
 $ pod install
 ```
+
+## Usage
+### Presenting a loading view
+```
+import CustomLoader
+
+LoadingView.standardProgressBox.show(inView: view)
+```
+
+### Remove the loading view
+```
+view.removeLoadingViews(animated: true)
+```
+
+### Customizing the progress ring
+```
+public extension ProgressRingView {
+    
+    public static var appProgressRing: ProgressRingView {
+        let view = ProgressRingView()
+        view.outterColor = .red
+        view.innerColor = .blue
+        return view
+    }
+}
+
+public extension LoadingView {
+
+    public static var appLoadingView: LoadingView {
+        return LoadingView(loaderView: ProgressRingView. appProgressRing)
+    }
+}
+
+```
+### Loader with your view
+```
+static var myLoader: LoadingView {
+    let loaderView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    loaderView.startAnimating()
+    return LoadingView(loaderView: loaderView)
+}
+```
+
+### Present the customized loader
+```
+LoadingView.appLoadingView.show(inView: view)
+```
+```
+LoadingView.myLoader.show(inView: view)
+```
+
+
