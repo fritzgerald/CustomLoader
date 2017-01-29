@@ -60,6 +60,14 @@ public extension ProgressBoxView {
         view.backgroundColor =  UIColor.lightGray
         return view
     }
+    
+    public static func system(withStyle style: UIActivityIndicatorViewStyle) -> ProgressBoxView {
+        let loaderView = UIActivityIndicatorView(activityIndicatorStyle: style)
+        loaderView.startAnimating()
+        let view = ProgressBoxView(loader: loaderView)
+        view.backgroundColor =  UIColor.lightGray
+        return view
+    }
 }
 
 extension UILabel {

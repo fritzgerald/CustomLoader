@@ -110,6 +110,10 @@ public extension LoadingView {
         loaderView.startAnimating()
         return LoadingView(loaderView: loaderView)
     }
+    
+    public static func systemBox(withStyle style: UIActivityIndicatorViewStyle) -> LoadingView {
+        return LoadingView(loaderView: ProgressBoxView.system(withStyle: style))
+    }
 }
 
 public extension LoadingView {
