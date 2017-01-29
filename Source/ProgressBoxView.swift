@@ -10,15 +10,15 @@ import UIKit
 
 public class ProgressBoxView: UIView {
 
-    public var loaderView: UIView!
+    public let loaderView: UIView!
     public let label = UILabel()
     public let subLabel = UILabel()
     
     internal var contentView: UIView!
 
     public init(loader: UIView) {
-        super.init(frame: CGRect.zero)
         loaderView = loader
+        super.init(frame: CGRect.zero)
         initializeStyle()
     }
     
