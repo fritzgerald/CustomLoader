@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C2A62301E3E02E60007D526 /* ProgressBoxViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A622F1E3E02E60007D526 /* ProgressBoxViewTests.swift */; };
+		4C2A62321E3E2CE70007D526 /* LoadingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A62311E3E2CE70007D526 /* LoadingViewTests.swift */; };
 		4CFF3E1F1E39E30000F8CDBC /* CustomLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFF3E151E39E30000F8CDBC /* CustomLoader.framework */; };
 		4CFF3E371E39E44600F8CDBC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF3E321E39E44600F8CDBC /* LoadingView.swift */; };
 		4CFF3E381E39E44600F8CDBC /* ProgressBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF3E331E39E44600F8CDBC /* ProgressBoxView.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		4C2A622F1E3E02E60007D526 /* ProgressBoxViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBoxViewTests.swift; sourceTree = "<group>"; };
+		4C2A62311E3E2CE70007D526 /* LoadingViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewTests.swift; sourceTree = "<group>"; };
 		4CFF3E151E39E30000F8CDBC /* CustomLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFF3E1E1E39E30000F8CDBC /* CustomLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFF3E301E39E44600F8CDBC /* CustomLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLoader.h; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				4CFF3E7C1E3A61BD00F8CDBC /* ProgressRingViewTests.swift */,
 				4CFF3E7E1E3A714900F8CDBC /* ProgressRingViewXibTest.xib */,
 				4C2A622F1E3E02E60007D526 /* ProgressBoxViewTests.swift */,
+				4C2A62311E3E2CE70007D526 /* LoadingViewTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFF3E7D1E3A61BD00F8CDBC /* ProgressRingViewTests.swift in Sources */,
+				4C2A62321E3E2CE70007D526 /* LoadingViewTests.swift in Sources */,
 				4C2A62301E3E02E60007D526 /* ProgressBoxViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
