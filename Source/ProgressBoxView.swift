@@ -10,10 +10,11 @@ import UIKit
 
 public class ProgressBoxView: UIView {
 
-    var loaderView: UIView!
-    var contentView: UIView!
+    public var loaderView: UIView!
     public let label = UILabel()
     public let subLabel = UILabel()
+    
+    private var contentView: UIView!
 
     public init(loader: UIView) {
         super.init(frame: CGRect.zero)
