@@ -24,12 +24,12 @@ public class LoadingView: UIView {
     }
     
     public func removeFromSuperview(animated: Bool, completion: ((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: 0.3, animations: {
+        let animaDuration: Double = animated ? 0.3 : 0
+        UIView.animate(withDuration: animaDuration, animations: {
             self.alpha = 0
         }, completion: { finished in
-            if finished {
-                self.removeFromSuperview()
-            }
+            
+            self.removeFromSuperview()
             if let completion = completion {
                 completion(finished)
             }
@@ -76,16 +76,30 @@ public extension LoadingView {
             loadingView.alpha = 0
             UIView.animate(withDuration: 0.3, animations: {
                 loadingView.alpha = 1.0
-            }, completion: completion)
+            }, completion: { finished in
+                loadingView.alpha = 1.0
+                completion?(finished)
+            })
         } else if let completion = completion {
             completion(true)
         }
     }
     
-    public class func removeLoadingViews(inView view: UIView, animated: Bool) {
+    public class func removeLoadingViews(inView view: UIView, animated: Bool, completion: ((Void) -> Void)? = nil) {
+        var loadingViews = [LoadingView]()
         view.subviews.forEach { view in
             if let loadingView = view as? LoadingView {
-                loadingView.removeFromSuperview(animated: animated)
+                loadingViews.append(loadingView)
+            }
+        }
+        var numberOfViews = loadingViews.count
+        for view in loadingViews {
+            view.removeFromSuperview(animated: animated) { _ in
+                numberOfViews -= 1
+                if numberOfViews == 0,
+                    let completion = completion {
+                    completion()
+                }
             }
         }
     }
@@ -129,7 +143,7 @@ public extension LoadingView {
 
 // MARK: UIView extensions
 public extension UIView {
-    public func removeLoadingViews(animated: Bool) {
-        LoadingView.removeLoadingViews(inView: self, animated: animated)
+    public func removeLoadingViews(animated: Bool, completion: ((Void) -> Void)? = nil) {
+        LoadingView.removeLoadingViews(inView: self, animated: animated, completion: completion)
     }
 }
