@@ -43,8 +43,9 @@ public class LoadingView: UIView {
 
 public extension LoadingView {
     // Instance presentation
-    public func show(inView view: UIView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
-       LoadingView.show(inView: view, loadingView: self, animated: animated, completion: completion)
+    public func show(inView view: UIView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) -> LoadingView{
+        LoadingView.show(inView: view, loadingView: self, animated: animated, completion: completion)
+        return self
     }
 }
 
@@ -108,6 +109,16 @@ public extension LoadingView {
         let loaderView = UIActivityIndicatorView(activityIndicatorStyle: style)
         loaderView.startAnimating()
         return LoadingView(loaderView: loaderView)
+    }
+}
+
+public extension LoadingView {
+    public var progressBox: ProgressBoxView? {
+        return loaderView as? ProgressBoxView
+    }
+    
+    public var progressRing: ProgressRingView? {
+        return loaderView as? ProgressRingView
     }
 }
 

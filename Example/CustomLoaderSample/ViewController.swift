@@ -22,10 +22,15 @@ class ViewController: UIViewController {
     
     @IBAction func showLoader(sender: Any) {
         
-        _ = LoadingView.standardProgressBox.show(inView: view) { _ in
+        let loader = LoadingView.standardProgressBox.show(inView: view) { _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self.view.removeLoadingViews(animated: true)
             }
+        }
+        
+        if let box = loader.progressBox {
+            box.label.text = "Loading ..."
+            box.subLabel.text = "1 of 4"
         }
     }
 }

@@ -12,8 +12,8 @@ public class ProgressBoxView: UIView {
 
     var loaderView: UIView!
     var contentView: UIView!
-    let label = UILabel()
-    let label2 = UILabel()
+    public let label = UILabel()
+    public let subLabel = UILabel()
 
     public init(loader: UIView) {
         super.init(frame: CGRect.zero)
@@ -33,9 +33,9 @@ public class ProgressBoxView: UIView {
         
         
         label.standardStyle(withFont: UIFont.boldSystemFont(ofSize: 15))
-        label2.standardStyle(withFont: UIFont.boldSystemFont(ofSize: 12))
+        subLabel.standardStyle(withFont: UIFont.boldSystemFont(ofSize: 12))
         
-        contentView.stackViews([loaderView , label, label2])
+        contentView.stackViews([loaderView , label, subLabel])
         
         let centerYConstraint = NSLayoutConstraint(item: contentView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 0)
         let centerXConstraint = NSLayoutConstraint(item: contentView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0)
