@@ -13,32 +13,23 @@ public class ProgressRingView: UIView {
     
     var addedLayer = [CALayer]()
     
-    private var _innerColor: UIColor = UIColor.clear
     @IBInspectable
-    public var innerColor: UIColor {
-        get { return _innerColor }
-        set {
-            _innerColor = newValue
+    public var innerColor: UIColor = UIColor.clear {
+        didSet {
             setNeedsLayout()
         }
     }
     
-    private var _outterColor: UIColor = UIColor.clear
     @IBInspectable
-    public var outterColor: UIColor {
-        get { return _outterColor }
-        set {
-            _outterColor = newValue
+    public var outterColor: UIColor = UIColor.clear {
+        didSet {
             setNeedsLayout()
         }
     }
     
-    private var _lineWidth: CGFloat = 3.0
     @IBInspectable
-    public var lineWidth: CGFloat {
-        get { return _lineWidth }
-        set {
-            _lineWidth = newValue
+    public var lineWidth: CGFloat = 3.0 {
+        didSet {
             setNeedsLayout()
         }
     }
