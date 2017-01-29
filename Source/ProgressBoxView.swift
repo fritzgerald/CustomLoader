@@ -14,7 +14,7 @@ public class ProgressBoxView: UIView {
     public let label = UILabel()
     public let subLabel = UILabel()
     
-    private var contentView: UIView!
+    internal var contentView: UIView!
 
     public init(loader: UIView) {
         super.init(frame: CGRect.zero)
