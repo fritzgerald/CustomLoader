@@ -8,8 +8,10 @@ env:
   matrix:
     - DESTINATION="OS=10.1,name=iPhone 7" SDK="$IOS_SDK" POD_LINT="NO"
     - DESTINATION="OS=9.0,name=iPhone 6" SDK="$IOS_SDK" POD_LINT="NO"
-    - DESTINATION="OS=8.1,name=iPhone 5s" SDK="$IOS_SDK" POD_LINT="YES"
+    - DESTINATION="OS=8.4,name=iPhone 5s" SDK="$IOS_SDK" POD_LINT="YES"
 script:
+  # important make sure that xcodebuid exit code is passed to xcpretty
+  - set -o pipefail
   - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug test | xcpretty
   # Run `pod lib lint` if specified
   - if [ $POD_LINT == "YES" ]; then
