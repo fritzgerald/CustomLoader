@@ -34,6 +34,37 @@ public class ProgressRingView: UIView {
         }
     }
     
+    @IBInspectable
+    public var isIndeterminate: Bool = true {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
+    @IBInspectable
+    public var minimumValue: CGFloat = 0 {
+        didSet {
+            setNeedsLayout()
+            if minimumValue >= maximumValue {
+                maximumValue = minimumValue + 1
+            }
+        }
+    }
+    
+    @IBInspectable
+    public var maximumValue: CGFloat = 1 {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
+    @IBInspectable
+    public var value: CGFloat? {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -44,12 +75,12 @@ public class ProgressRingView: UIView {
         initialize()
     }
     
-    private func circleLayer(color: UIColor, scale: CGFloat = 1.0) -> CALayer {
+    private func circleLayer(color: UIColor, radius: CGFloat, angle: Double, lineWith width: CGFloat) -> CALayer {
         
-        let shapeLayer = CAShapeLayer(circleInFrame: bounds, scale:scale, maxAngle: M_PI)
+        let shapeLayer = CAShapeLayer(circleInFrame: bounds, radius:radius, maxAngle: angle)
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = color.cgColor
-        shapeLayer.lineWidth = lineWidth
+        shapeLayer.lineWidth = width
         
         layer.addSublayer(shapeLayer)
         return shapeLayer
@@ -57,11 +88,42 @@ public class ProgressRingView: UIView {
     
     private func initialize() {
         
-        let theLayer = circleLayer(color: outterColor)
+        if isIndeterminate {
+            initializeIndeterminate()
+        } else {
+            initializeDeterminate()
+        }
+    }
+    
+    private func initializeDeterminate() {
+        
+        let bigRadius = (bounds.width / 2.0) - lineWidth
+        let centerRadius = bigRadius - lineWidth
+        var valueRatio: Double = 0
+        if let value = value {
+            valueRatio = ProgressRingView.valueRatio(minumum: minimumValue, maximum: maximumValue, value: value)
+        }
+        
+        let theLayer = circleLayer(color: outterColor, radius: bigRadius, angle:(M_PI * 2 * valueRatio) - M_PI_2  , lineWith: lineWidth)
+        layer.addSublayer(theLayer)
+        
+        let theLayer2 = circleLayer(color: innerColor, radius: centerRadius, angle: (M_PI * 2) - M_PI_2, lineWith: lineWidth)
+        layer.addSublayer(theLayer2)
+        
+        
+        addedLayer.append(theLayer)
+        addedLayer.append(theLayer2)
+    }
+    
+    
+    private func initializeIndeterminate() {
+        
+        let bigRadius = (bounds.width / 2.0) - lineWidth
+        let theLayer = circleLayer(color: outterColor, radius: bigRadius, angle: M_PI, lineWith: lineWidth)
         layer.addSublayer(theLayer)
         theLayer.addRotationAnimation(clockwise: true)
         
-        let theLayer2 = circleLayer(color: innerColor, scale: 0.7)
+        let theLayer2 = circleLayer(color: innerColor, radius: bigRadius - lineWidth, angle: M_PI, lineWith: lineWidth)
         layer.addSublayer(theLayer2)
         theLayer2.addRotationAnimation(clockwise: false)
         
@@ -81,6 +143,16 @@ public class ProgressRingView: UIView {
     
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: 40, height: 40)
+    }
+}
+
+internal extension ProgressRingView {
+    // MARK: Helper
+    static func valueRatio(minumum: CGFloat, maximum: CGFloat, value: CGFloat) -> Double{
+        let amplitude = maximum - minumum
+        let translatedValue = fabs(Double(value - minumum))
+        let valueRatio = Double(translatedValue) / Double(amplitude)
+        return fmin(fmax(0, valueRatio), 1.0)
     }
 }
 
@@ -104,15 +176,15 @@ public extension ProgressRingView {
 extension CAShapeLayer {
     
     convenience init(circleInFrame drawingFrame: CGRect,
-                     scale: CGFloat = 1.0,
+                     radius: CGFloat,
                      maxAngle: Double = M_PI * 2,
                      clockwise: Bool = true) {
         self.init()
-        let diameter = fmin(drawingFrame.width, drawingFrame.height)
+        //let diameter = fmin(drawingFrame.width, drawingFrame.height)
         let center = CGPoint(x: drawingFrame.width / 2.0, y: drawingFrame.height / 2.0)
         let circlePath = UIBezierPath(arcCenter: center,
-                                      radius: (diameter * scale) / 2.0,
-                                      startAngle: CGFloat(0),
+                                      radius: radius,
+                                      startAngle: CGFloat(-M_PI_2),
                                       endAngle:CGFloat(maxAngle),
                                       clockwise: clockwise)
         path = circlePath.cgPath
