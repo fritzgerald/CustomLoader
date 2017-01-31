@@ -44,9 +44,11 @@ public class ProgressRingView: UIView {
     @IBInspectable
     public var minimumValue: CGFloat = 0 {
         didSet {
-            setNeedsLayout()
             if minimumValue >= maximumValue {
                 maximumValue = minimumValue + 1
+            }
+            if isIndeterminate == false {
+                setNeedsLayout()
             }
         }
     }
@@ -54,14 +56,18 @@ public class ProgressRingView: UIView {
     @IBInspectable
     public var maximumValue: CGFloat = 1 {
         didSet {
-            setNeedsLayout()
+            if isIndeterminate == false {
+                setNeedsLayout()
+            }
         }
     }
     
     @IBInspectable
     public var value: CGFloat? {
         didSet {
-            setNeedsLayout()
+            if isIndeterminate == false {
+                setNeedsLayout()
+            }
         }
     }
     

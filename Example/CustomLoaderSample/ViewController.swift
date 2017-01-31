@@ -42,6 +42,7 @@ class ViewController: UIViewController {
             if let ring = box.loaderView as? ProgressRingView {
                 ring.minimumValue = -2
                 ring.maximumValue = 2
+                ring.isIndeterminate = false
                 ring.value = self.value
             }
         }
