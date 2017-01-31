@@ -35,7 +35,8 @@ class ProgressRingViewTests: XCTestCase {
         ringView.outterColor = .red
         ringView.innerColor = .white
         ringView.lineWidth = 10
-        ringView.layoutSubviews()
+        ringView.isIndeterminate = true
+        ringView.layoutIfNeeded()
         
         XCTAssertNotNil(ringView.layer.sublayers)
         if let sublayers = ringView.layer.sublayers {
@@ -64,12 +65,52 @@ class ProgressRingViewTests: XCTestCase {
         }
     }
     
+    func testDeterminateRing() {
+        
+        let ringView = ProgressRingView()
+        ringView.outterColor = .red
+        ringView.innerColor = .white
+        ringView.lineWidth = 10
+        ringView.isIndeterminate = false
+        ringView.minimumValue = -2
+        ringView.maximumValue = 0
+        ringView.value = -1
+        
+        XCTAssertEqual(ringView.valueRatio, 0.5)
+        ringView.layoutIfNeeded()
+        
+        XCTAssertNotNil(ringView.layer.sublayers)
+        if let sublayers = ringView.layer.sublayers {
+            XCTAssertEqual(sublayers.count, 2)
+            
+            guard let outterLayer = sublayers[0] as? CAShapeLayer,
+                let innerLayer = sublayers[1] as? CAShapeLayer else {
+                    XCTFail("outterLayer and outterLayer must be of type CAShapeLayer")
+                    return
+            }
+            
+            XCTAssertEqual(outterLayer.strokeColor!, UIColor.red.cgColor)
+            XCTAssertEqual(innerLayer.strokeColor!, UIColor.white.cgColor)
+            XCTAssertEqual(outterLayer.lineWidth, 10)
+            XCTAssertEqual(innerLayer.lineWidth, 10)
+            
+            let outterAnimation = outterLayer.animation(forKey: "rotation") as? CABasicAnimation
+            let innerAnimation = innerLayer.animation(forKey: "rotation") as? CABasicAnimation
+            
+            XCTAssertNil(outterAnimation)
+            XCTAssertNil(innerAnimation)
+            XCTAssert(outterLayer.animationKeys() == nil || outterLayer.animationKeys()?.count == 0)
+        }
+    }
+
+    
     func testLightStyle() {
         
         let darkRing = ProgressRingView.light
         XCTAssertEqual(darkRing.outterColor, UIColor.white)
         XCTAssertEqual(darkRing.innerColor, UIColor.darkGray)
         XCTAssertEqual(darkRing.lineWidth, 3)
+        XCTAssertTrue(darkRing.isIndeterminate)
     }
     
     func testDarkStyle() {
@@ -78,6 +119,7 @@ class ProgressRingViewTests: XCTestCase {
         XCTAssertEqual(lightRing.outterColor, UIColor.black)
         XCTAssertEqual(lightRing.innerColor, UIColor.darkGray)
         XCTAssertEqual(lightRing.lineWidth, 3)
+        XCTAssertTrue(lightRing.isIndeterminate)
     }
     
     func testXibInitialization() {
@@ -96,4 +138,14 @@ class ProgressRingViewTests: XCTestCase {
         }
     }
     
+    func testProgressRingProgression() {
+        XCTAssertEqual(ProgressRingView.valueRatio(minumum: 0, maximum: 1, value: 0.5), 0.5)
+        XCTAssertEqual(ProgressRingView.valueRatio(minumum: -2, maximum: 0, value: -1.5), 0.25)
+        XCTAssertEqual(round(ProgressRingView.valueRatio(minumum: 0.25, maximum: 0.5, value: 0.30), toDecimalPlaces: 2), 0.2)
+    }
+    
+    func round(_ value: Double, toDecimalPlaces places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (value * divisor).rounded() / divisor
+    }
 }

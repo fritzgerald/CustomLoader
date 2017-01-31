@@ -65,6 +65,13 @@ public class ProgressRingView: UIView {
         }
     }
     
+    public var valueRatio: Double {
+        guard let value = value else {
+            return 0
+        }
+        return ProgressRingView.valueRatio(minumum: minimumValue, maximum: maximumValue, value: value)
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -146,7 +153,7 @@ public class ProgressRingView: UIView {
     }
 }
 
-internal extension ProgressRingView {
+extension ProgressRingView {
     // MARK: Helper
     static func valueRatio(minumum: CGFloat, maximum: CGFloat, value: CGFloat) -> Double{
         let amplitude = maximum - minumum
