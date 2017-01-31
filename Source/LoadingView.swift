@@ -8,9 +8,18 @@
 
 import UIKit
 
+/**
+    A view that will fill the given view and block user input
+ */
 public class LoadingView: UIView {
+    /** The view that indicate that the user must wait for some oeration to complete */
     let loaderView: UIView
     
+    /**
+        Initialize the loading.
+     
+        - Parameter loaderView: view that indicate that we are waiting for and activity to end
+    */
     public init(loaderView theView: UIView) {
         loaderView = theView
         super.init(frame: CGRect.zero)
@@ -23,6 +32,12 @@ public class LoadingView: UIView {
         addConstraints([centerXContraint, centerYContraint])
     }
     
+    /**
+        Remove the loading view from is super view
+     
+        - Parameter animated: whether view should fade out before being removed form superview
+        - Parameter completion: Handler called after the view is removed. If animation is false, this block is performed at the beginning of the next run loop cycle
+    */
     public func removeFromSuperview(animated: Bool, completion: ((Bool) -> Void)? = nil) {
         let animaDuration: Double = animated ? 0.3 : 0
         UIView.animate(withDuration: animaDuration, animations: {
@@ -42,7 +57,13 @@ public class LoadingView: UIView {
 }
 
 public extension LoadingView {
-    // Instance presentation
+    /**
+        Present the loading view
+        
+        - Parameter inView: The view to present the loader into
+        - Parameter animated: whether or not we should the loading view should fade in when presented
+        - Parameter completion: Handler called after the view is removed.
+    */
     public func show(inView view: UIView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) -> LoadingView{
         LoadingView.show(inView: view, loadingView: self, animated: animated, completion: completion)
         return self
@@ -51,6 +72,14 @@ public extension LoadingView {
 
 public extension LoadingView {
     // MARK: LoadingView Presentation
+    /**
+     Present the loading view
+     
+     - Parameter inView: The view to present the loader into
+     - Parameter withProgressRing: The progress ring view to present
+     - Parameter animated: whether or not we should the loading view should fade in when presented
+     - Parameter completion: Handler called after the view is removed.
+     */
     public class func show(inView view:UIView, withProgressRing ringView: ProgressRingView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) -> LoadingView {
         
         let loadingView = LoadingView(loaderView: ringView)
@@ -59,7 +88,15 @@ public extension LoadingView {
         return loadingView
     }
     
-    public class func show(inView view: UIView, box: ProgressBoxView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) -> LoadingView {
+    /**
+     Present the loading view
+     
+     - Parameter inView: The view to present the loader into
+     - Parameter withProgressBox: The progress Box view to present
+     - Parameter animated: whether or not we should the loading view should fade in when presented
+     - Parameter completion: Handler called after the view is removed.
+     */
+    public class func show(inView view: UIView, withProgressBox box: ProgressBoxView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) -> LoadingView {
         
         let loadingView = LoadingView(loaderView: box)
         show(inView: view, loadingView: loadingView, animated: animated, completion: completion)
@@ -67,6 +104,14 @@ public extension LoadingView {
         return loadingView
     }
     
+    /**
+     Present the loading view
+     
+     - Parameter inView: The view to present the loader into
+     - Parameter loadingView: view that indicate that we are waiting for and activity to end
+     - Parameter animated: whether or not we should the loading view should fade in when presented
+     - Parameter completion: Handler called after the view is removed.
+     */
     public class func show(inView view: UIView, loadingView: UIView, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
         loadingView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin,]
         loadingView.frame = view.bounds
@@ -85,6 +130,13 @@ public extension LoadingView {
         }
     }
     
+    /**
+     Remove all loading views from the view
+     
+     - Parameter inView: remove the loaders from this view
+     - Parameter animated: whether view should fade out before being removed form superview
+     - Parameter completion: Handler called after the view is removed. If animation is false, this block is performed at the beginning of the next run loop cycle
+     */
     public class func removeLoadingViews(inView view: UIView, animated: Bool, completion: ((Void) -> Void)? = nil) {
         var loadingViews = [LoadingView]()
         view.subviews.forEach { view in
@@ -107,34 +159,47 @@ public extension LoadingView {
 
 // MARK: Style
 public extension LoadingView {
+    /** Loading view with a light progress ring */
     public static var lightProgressRing: LoadingView {
         return LoadingView(loaderView: ProgressRingView.light)
     }
     
+    /** Loading view with a dark progress ring */
     public static var darkProgressRing: LoadingView {
         return LoadingView(loaderView: ProgressRingView.dark)
     }
     
+    /** Loading view with a standard progress box */
     public static var standardProgressBox: LoadingView {
         return LoadingView(loaderView: ProgressBoxView.standard)
     }
     
+    /** 
+     Loading view with a system activity indicator 
+     - Parameter withStyle: Activity indicator style
+     */
     public static func system(withStyle style: UIActivityIndicatorViewStyle) -> LoadingView {
         let loaderView = UIActivityIndicatorView(activityIndicatorStyle: style)
         loaderView.startAnimating()
         return LoadingView(loaderView: loaderView)
     }
     
+    /**
+     Loading view with a Progress Box containing system activity indicator
+     - Parameter withStyle: Activity indicator style
+     */
     public static func systemBox(withStyle style: UIActivityIndicatorViewStyle) -> LoadingView {
         return LoadingView(loaderView: ProgressBoxView.system(withStyle: style))
     }
 }
 
 public extension LoadingView {
+    /** the loaderView casted as a Progress box */
     public var progressBox: ProgressBoxView? {
         return loaderView as? ProgressBoxView
     }
     
+    /** the loaderView casted as a Progress Ring */
     public var progressRing: ProgressRingView? {
         return loaderView as? ProgressRingView
     }
@@ -143,6 +208,12 @@ public extension LoadingView {
 
 // MARK: UIView extensions
 public extension UIView {
+    /**
+     Remove all loading views from the view
+     
+     - Parameter animated: whether view should fade out before being removed form superview
+     - Parameter completion: Handler called after the view is removed. If animation is false, this block is performed at the beginning of the next run loop cycle
+     */
     public func removeLoadingViews(animated: Bool, completion: ((Void) -> Void)? = nil) {
         LoadingView.removeLoadingViews(inView: self, animated: animated, completion: completion)
     }
