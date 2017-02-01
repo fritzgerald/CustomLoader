@@ -138,6 +138,26 @@ class ProgressRingViewTests: XCTestCase {
         }
     }
     
+    func testRingValue() {
+        
+        let ringView = ProgressRingView()
+        ringView.outterColor = .red
+        ringView.innerColor = .white
+        ringView.lineWidth = 10
+        ringView.isIndeterminate = false
+        ringView.minimumValue = -2
+        ringView.maximumValue = 0
+        ringView.value = -1
+        
+        XCTAssertEqual(ringView.value, -1)
+        XCTAssertEqual(ringView.valueRatio, 0.5)
+        ringView.value = -3
+        XCTAssertEqual(ringView.value, -2)
+        ringView.value = 3
+        XCTAssertEqual(ringView.value, 0)
+        
+    }
+    
     func testProgressRingProgression() {
         XCTAssertEqual(ProgressRingView.valueRatio(minumum: 0, maximum: 1, value: 0.5), 0.5)
         XCTAssertEqual(ProgressRingView.valueRatio(minumum: -2, maximum: 0, value: -1.5), 0.25)

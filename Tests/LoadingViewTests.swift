@@ -108,7 +108,7 @@ class LoadingViewTests: XCTestCase {
     func testBoxPresentation() {
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 320))
         let expect = expectation(description: "loading view loaded")
-        let loader = LoadingView.show(inView: containerView, box: .standard) { _ in
+        let loader = LoadingView.show(inView: containerView, withProgressBox: .standard) { _ in
             expect.fulfill()
         }
         
