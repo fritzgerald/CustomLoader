@@ -128,10 +128,10 @@ public class ProgressRingView: UIView {
         let bigRadius = (bounds.width / 2.0) - lineWidth
         let centerRadius = bigRadius - lineWidth
         let valueRatio = ProgressRingView.valueRatio(minumum: minimumValue, maximum: maximumValue, value: value)
-        let theLayer = circleLayer(color: outterColor, radius: bigRadius, angle:(M_PI * 2 * valueRatio) - M_PI_2  , lineWith: lineWidth)
+        let theLayer = circleLayer(color: outterColor, radius: bigRadius, angle: M_PI * 2 * valueRatio, lineWith: lineWidth)
         layer.addSublayer(theLayer)
         
-        let theLayer2 = circleLayer(color: innerColor, radius: centerRadius, angle: (M_PI * 2) - M_PI_2, lineWith: lineWidth)
+        let theLayer2 = circleLayer(color: innerColor, radius: centerRadius, angle: M_PI * 2, lineWith: lineWidth)
         layer.addSublayer(theLayer2)
         
         
@@ -211,7 +211,7 @@ extension CAShapeLayer {
         let circlePath = UIBezierPath(arcCenter: center,
                                       radius: radius,
                                       startAngle: CGFloat(-M_PI_2),
-                                      endAngle:CGFloat(maxAngle),
+                                      endAngle:CGFloat(maxAngle - M_PI_2),
                                       clockwise: clockwise)
         path = circlePath.cgPath
         frame = drawingFrame
