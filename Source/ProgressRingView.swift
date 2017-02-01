@@ -8,11 +8,15 @@
 
 import UIKit
 
+/**
+ A ring that view that can represent some background activity
+ */
 @IBDesignable
 public class ProgressRingView: UIView {
     
-    var addedLayer = [CALayer]()
+    private var addedLayer = [CALayer]()
     
+    /** Color of the inner ring */
     @IBInspectable
     public var innerColor: UIColor = UIColor.clear {
         didSet {
@@ -20,6 +24,7 @@ public class ProgressRingView: UIView {
         }
     }
     
+    /** Color of the outter ring */
     @IBInspectable
     public var outterColor: UIColor = UIColor.clear {
         didSet {
@@ -27,6 +32,7 @@ public class ProgressRingView: UIView {
         }
     }
     
+    /** the line width of each circle */
     @IBInspectable
     public var lineWidth: CGFloat = 3.0 {
         didSet {
@@ -34,6 +40,10 @@ public class ProgressRingView: UIView {
         }
     }
     
+    /** 
+     A boolean that indicate if the view represent a determinate activity.
+     If false then the view will stop the animation and the outter ring will progress following the value ratio
+     */
     @IBInspectable
     public var isIndeterminate: Bool = true {
         didSet {
@@ -41,6 +51,7 @@ public class ProgressRingView: UIView {
         }
     }
     
+    /** default 0.0. the current value may change if outside new min value */
     @IBInspectable
     public var minimumValue: CGFloat = 0 {
         didSet {
@@ -53,6 +64,7 @@ public class ProgressRingView: UIView {
         }
     }
     
+    /** default 1.0. the current value may change if outside new max value */
     @IBInspectable
     public var maximumValue: CGFloat = 1 {
         didSet {
@@ -62,19 +74,22 @@ public class ProgressRingView: UIView {
         }
     }
     
+    private var _value: CGFloat = 0
+    
+    /** default 0.0. this value will be pinned to min/max */
     @IBInspectable
-    public var value: CGFloat? {
-        didSet {
+    public var value: CGFloat {
+        get { return _value }
+        set {
+            _value = min(max(newValue, minimumValue), maximumValue)
             if isIndeterminate == false {
                 setNeedsLayout()
             }
         }
     }
     
+    /** the actual progression between 0 and 1 */
     public var valueRatio: Double {
-        guard let value = value else {
-            return 0
-        }
         return ProgressRingView.valueRatio(minumum: minimumValue, maximum: maximumValue, value: value)
     }
     
@@ -112,11 +127,7 @@ public class ProgressRingView: UIView {
         
         let bigRadius = (bounds.width / 2.0) - lineWidth
         let centerRadius = bigRadius - lineWidth
-        var valueRatio: Double = 0
-        if let value = value {
-            valueRatio = ProgressRingView.valueRatio(minumum: minimumValue, maximum: maximumValue, value: value)
-        }
-        
+        let valueRatio = ProgressRingView.valueRatio(minumum: minimumValue, maximum: maximumValue, value: value)
         let theLayer = circleLayer(color: outterColor, radius: bigRadius, angle:(M_PI * 2 * valueRatio) - M_PI_2  , lineWith: lineWidth)
         layer.addSublayer(theLayer)
         
@@ -171,6 +182,7 @@ extension ProgressRingView {
 
 public extension ProgressRingView {
     
+    /** A progress Ring with a white outter color an dark gray inner color*/
     public static var light: ProgressRingView {
         let view = ProgressRingView()
         view.outterColor = .white
@@ -178,6 +190,7 @@ public extension ProgressRingView {
         return view
     }
     
+    /** A progress Ring with a black outter color an dark darkGray inner color*/
     public static var dark: ProgressRingView {
         let view = ProgressRingView()
         view.outterColor = .black

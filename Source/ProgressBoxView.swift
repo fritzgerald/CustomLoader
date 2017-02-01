@@ -8,14 +8,25 @@
 
 import UIKit
 
+/**
+ A Boxed view that present a view stacked with two labels
+ */
 public class ProgressBoxView: UIView {
 
+    /** The loading indicator view*/
     public let loaderView: UIView!
+    /** Main text*/
     public let label = UILabel()
+    /** sub text */
     public let subLabel = UILabel()
     
     internal var contentView: UIView!
 
+    /**
+     Initialize the loading box with the given view
+     
+     - Parameter loader: the loading indicator
+    */
     public init(loader: UIView) {
         loaderView = loader
         super.init(frame: CGRect.zero)
@@ -56,12 +67,20 @@ public class ProgressBoxView: UIView {
 }
 
 public extension ProgressBoxView {
+    /**
+     A progress box with a light loading ring as indicator
+    */
     public static var standard: ProgressBoxView {
         let view = ProgressBoxView(loader: ProgressRingView.light)
         view.backgroundColor =  UIColor.lightGray
         return view
     }
     
+    /**
+     A progress box with an Activity indicator View
+     
+     - Parameter withStyle: the Activity indicator style
+    */
     public static func system(withStyle style: UIActivityIndicatorViewStyle) -> ProgressBoxView {
         let loaderView = UIActivityIndicatorView(activityIndicatorStyle: style)
         loaderView.startAnimating()
