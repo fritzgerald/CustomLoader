@@ -92,7 +92,8 @@ LoadingView.myLoader.show(inView: view)
 ```
 ## Screenshot
 
-![Exemple](https://github.com/fritzgerald/screenshots/raw/master/CustomLoader/Capture1.png)
-![Exemple](https://github.com/fritzgerald/screenshots/raw/master/CustomLoader/Capture2.png)
+![Exemple](https://github.com/fritzgerald/screenshots/raw/master/CustomLoader/Capture4.png)
+![Exemple](https://github.com/fritzgerald/screenshots/raw/master/CustomLoader/Capture5.png)
+![Exemple](https://github.com/fritzgerald/screenshots/raw/master/CustomLoader/Capture6.png)
 
 
