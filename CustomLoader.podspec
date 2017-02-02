@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "CustomLoader"
-  s.version      = "0.1.0"
+  s.version      = "1.0.0"
   s.summary      = "Custom loader system for iOS"
   s.description  = <<-DESC
                     Custom loader system for iOS that provide default loaders
@@ -17,11 +17,11 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/fritzgerald/CustomLoader"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  s.screenshots  = "https://github.com/fritzgerald/screenshots/raw/master/CustomLoader/Capture1.png", "https://github.com/fritzgerald/screenshots/raw/master/CustomLoader/Capture2.png", "https://github.com/fritzgerald/screenshots/raw/master/CustomLoader/Capture3.png"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "MUISEROUX Fritzgerald" => "f.muiseroux@gmail.com" }
   s.platform     = :ios, '8.0'
-  s.source       = { :git => "https://github.com/fritzgerald/CustomLoader.git", :tag => "0.1.0" }
+  s.source       = { :git => "https://github.com/fritzgerald/CustomLoader.git", :tag => "1.0.0" }
   s.source_files  = "Source/", "Source/**/*.{h,m}"
 
 end
