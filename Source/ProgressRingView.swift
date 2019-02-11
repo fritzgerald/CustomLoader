@@ -128,10 +128,10 @@ public class ProgressRingView: UIView {
         let bigRadius = (bounds.width / 2.0) - lineWidth
         let centerRadius = bigRadius - lineWidth
         let valueRatio = ProgressRingView.valueRatio(minumum: minimumValue, maximum: maximumValue, value: value)
-        let theLayer = circleLayer(color: outterColor, radius: bigRadius, angle: M_PI * 2 * valueRatio, lineWith: lineWidth)
+        let theLayer = circleLayer(color: outterColor, radius: bigRadius, angle: .pi * 2 * valueRatio, lineWith: lineWidth)
         layer.addSublayer(theLayer)
         
-        let theLayer2 = circleLayer(color: innerColor, radius: centerRadius, angle: M_PI * 2, lineWith: lineWidth)
+        let theLayer2 = circleLayer(color: innerColor, radius: centerRadius, angle: .pi * 2, lineWith: lineWidth)
         layer.addSublayer(theLayer2)
         
         
@@ -143,11 +143,11 @@ public class ProgressRingView: UIView {
     private func initializeIndeterminate() {
         
         let bigRadius = (bounds.width / 2.0) - lineWidth
-        let theLayer = circleLayer(color: outterColor, radius: bigRadius, angle: M_PI, lineWith: lineWidth)
+        let theLayer = circleLayer(color: outterColor, radius: bigRadius, angle: .pi, lineWith: lineWidth)
         layer.addSublayer(theLayer)
         theLayer.addRotationAnimation(clockwise: true)
         
-        let theLayer2 = circleLayer(color: innerColor, radius: bigRadius - lineWidth, angle: M_PI, lineWith: lineWidth)
+        let theLayer2 = circleLayer(color: innerColor, radius: bigRadius - lineWidth, angle: .pi, lineWith: lineWidth)
         layer.addSublayer(theLayer2)
         theLayer2.addRotationAnimation(clockwise: false)
         
@@ -203,15 +203,15 @@ extension CAShapeLayer {
     
     convenience init(circleInFrame drawingFrame: CGRect,
                      radius: CGFloat,
-                     maxAngle: Double = M_PI * 2,
+                     maxAngle: Double = .pi * 2,
                      clockwise: Bool = true) {
         self.init()
         //let diameter = fmin(drawingFrame.width, drawingFrame.height)
         let center = CGPoint(x: drawingFrame.width / 2.0, y: drawingFrame.height / 2.0)
         let circlePath = UIBezierPath(arcCenter: center,
                                       radius: radius,
-                                      startAngle: CGFloat(-M_PI_2),
-                                      endAngle:CGFloat(maxAngle - M_PI_2),
+                                      startAngle: CGFloat(-.pi / 2.0),
+                                      endAngle:CGFloat(maxAngle - (.pi / 2.0)),
                                       clockwise: clockwise)
         path = circlePath.cgPath
         frame = drawingFrame
@@ -225,15 +225,15 @@ extension CALayer {
         
         let rotation = CABasicAnimation(keyPath: "transform.rotation.z")
         rotation.fromValue = 0
-        rotation.toValue = M_PI
+        rotation.toValue = Double.pi
         if clockwise {
-            rotation.toValue = -M_PI
+            rotation.toValue = -Double.pi
         }
         rotation.isCumulative = true
-        rotation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionLinear)
+        rotation.timingFunction = CAMediaTimingFunction(name: .linear)
         rotation.duration = 0.75
         rotation.isAdditive = true
-        rotation.fillMode = kCAFilterLinear
+        rotation.fillMode = .forwards
         rotation.repeatCount = Float.greatestFiniteMagnitude;
         
         self.add(rotation, forKey: "rotation")

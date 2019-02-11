@@ -36,7 +36,7 @@ class ProgressBoxViewTests: XCTestCase {
         
         let loadingView = standardBox.loaderView as? UIActivityIndicatorView
         XCTAssertNotNil(loadingView)
-        XCTAssertEqual(loadingView?.activityIndicatorViewStyle, UIActivityIndicatorViewStyle.gray)
+        XCTAssertEqual(loadingView?.style, UIActivityIndicatorView.Style.gray)
         XCTAssertTrue((loadingView?.isAnimating)!)
         XCTAssertEqual(standardBox.backgroundColor, UIColor.lightGray)
     }

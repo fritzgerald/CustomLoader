@@ -137,7 +137,7 @@ public extension LoadingView {
      - Parameter animated: whether view should fade out before being removed form superview
      - Parameter completion: Handler called after the view is removed. If animation is false, this block is performed at the beginning of the next run loop cycle
      */
-    public class func removeLoadingViews(inView view: UIView, animated: Bool, completion: ((Void) -> Void)? = nil) {
+    public class func removeLoadingViews(inView view: UIView, animated: Bool, completion: (() -> Void)? = nil) {
         var loadingViews = [LoadingView]()
         view.subviews.forEach { view in
             if let loadingView = view as? LoadingView {
@@ -178,8 +178,8 @@ public extension LoadingView {
      Loading view with a system activity indicator 
      - Parameter withStyle: Activity indicator style
      */
-    public static func system(withStyle style: UIActivityIndicatorViewStyle) -> LoadingView {
-        let loaderView = UIActivityIndicatorView(activityIndicatorStyle: style)
+    public static func system(withStyle style: UIActivityIndicatorView.Style) -> LoadingView {
+        let loaderView = UIActivityIndicatorView(style: style)
         loaderView.startAnimating()
         return LoadingView(loaderView: loaderView)
     }
@@ -188,7 +188,7 @@ public extension LoadingView {
      Loading view with a Progress Box containing system activity indicator
      - Parameter withStyle: Activity indicator style
      */
-    public static func systemBox(withStyle style: UIActivityIndicatorViewStyle) -> LoadingView {
+    public static func systemBox(withStyle style: UIActivityIndicatorView.Style) -> LoadingView {
         return LoadingView(loaderView: ProgressBoxView.system(withStyle: style))
     }
 }
@@ -214,7 +214,7 @@ public extension UIView {
      - Parameter animated: whether view should fade out before being removed form superview
      - Parameter completion: Handler called after the view is removed. If animation is false, this block is performed at the beginning of the next run loop cycle
      */
-    public func removeLoadingViews(animated: Bool, completion: ((Void) -> Void)? = nil) {
+    public func removeLoadingViews(animated: Bool, completion: (() -> Void)? = nil) {
         LoadingView.removeLoadingViews(inView: self, animated: animated, completion: completion)
     }
 }

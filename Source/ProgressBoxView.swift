@@ -81,8 +81,8 @@ public extension ProgressBoxView {
      
      - Parameter withStyle: the Activity indicator style
     */
-    public static func system(withStyle style: UIActivityIndicatorViewStyle) -> ProgressBoxView {
-        let loaderView = UIActivityIndicatorView(activityIndicatorStyle: style)
+    public static func system(withStyle style: UIActivityIndicatorView.Style) -> ProgressBoxView {
+        let loaderView = UIActivityIndicatorView(style: style)
         loaderView.startAnimating()
         let view = ProgressBoxView(loader: loaderView)
         view.backgroundColor =  UIColor.lightGray
