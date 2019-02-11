@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var timer: Timer!
     var value: CGFloat = -2
     var loader: LoadingView!
+    @IBOutlet var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class ViewController: UIViewController {
             }
         }
         
-        timer = Timer(timeInterval: 1, target: self, selector: #selector(timerFire), userInfo: nil, repeats: true)
+        timer = Timer(timeInterval: 0.5, target: self, selector: #selector(timerFire), userInfo: nil, repeats: true)
         RunLoop.main.add(timer, forMode: .defaultRunLoopMode)
         
         if let box = loader.progressBox {
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
             if let ring = box.loaderView as? ProgressRingView {
                 ring.minimumValue = -2
                 ring.maximumValue = 2
-                ring.isIndeterminate = false
+                ring.isIndeterminate = true
                 ring.value = self.value
             }
         }
@@ -55,6 +56,23 @@ class ViewController: UIViewController {
                 ring.value = self.value
             }
         }
+    }
+
+    @IBAction func getMyIP(_ sender: Any) {
+
+        let url = URL(string: "https://api.ipify.org/")!
+        _ = LoadingView.standardProgressBox.show(inView: view)
+        let task = URLSession.shared.dataTask(with: url) { (data, _, _) in
+            DispatchQueue.main.async {
+                self.view.removeLoadingViews(animated: true)
+                guard let data = data else {
+                    return
+                }
+                let ip = String(data: data, encoding: .ascii)
+                self.titleLabel.text = ip
+            }
+        }
+        task.resume()
     }
 }
 
